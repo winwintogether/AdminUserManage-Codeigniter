@@ -69,7 +69,16 @@ class Login extends CI_Controller
             {
                 foreach ($result as $res)
                 {
-                   
+                    $sessionArray = array('userId'=>$res->userId,                    
+                                            'role'=>$res->roleId,
+                                            'roleText'=>$res->role,
+                                            'name'=>$res->name,
+                                            'isLoggedIn' => TRUE
+                                    );
+                                    
+                    $this->session->set_userdata($sessionArray);
+                    
+                    redirect('/dashboard');
                 }
             }
             else
