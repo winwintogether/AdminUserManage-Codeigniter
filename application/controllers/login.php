@@ -51,7 +51,13 @@ class Login extends CI_Controller
     {
         $this->load->library('form_validation');
         
-      
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[128]|xss_clean|trim');
+        $this->form_validation->set_rules('password', 'Password', 'required|max_length[32]|');
+        
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->index();
+        }
         else
         {
             $email = $this->input->post('email');
