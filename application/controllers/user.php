@@ -20,6 +20,13 @@ class User extends BaseController
         $this->load->model('user_model');
         $this->isLoggedIn();   
     }
+     public function index()
+    {
+        $this->global['pageTitle'] = 'CodeInsect : Dashboard';
+        
+        $this->loadViews("dashboard", $this->global, NULL , NULL);
+    }
+    
     
 }
 ?>
