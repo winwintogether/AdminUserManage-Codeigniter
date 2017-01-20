@@ -26,7 +26,18 @@ class User extends BaseController
         
         $this->loadViews("dashboard", $this->global, NULL , NULL);
     }
-    
+    function userListing()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {
+           
+        }
+    }
+
     
 }
 ?>
