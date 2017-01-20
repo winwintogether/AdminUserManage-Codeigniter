@@ -34,7 +34,14 @@ class User extends BaseController
         }
         else
         {
-           
+            $this->load->model('user_model');
+        
+            $searchText = $this->input->post('searchText');
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->userListingCount($searchText);
         }
     }
 
