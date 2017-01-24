@@ -48,6 +48,8 @@ class User extends BaseController
             $data['userRecords'] = $this->user_model->userListing($searchText, $returns["page"], $returns["segment"]);
             
             $this->global['pageTitle'] = 'CodeInsect : User Listing';
+              
+            $this->loadViews("users", $this->global, $data, NULL);
         }
     }
 
