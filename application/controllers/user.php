@@ -52,7 +52,7 @@ class User extends BaseController
             $this->loadViews("users", $this->global, $data, NULL);
         }
     }
-    
+
     function addNew()
     {
         if($this->isAdmin() == TRUE)
@@ -64,9 +64,7 @@ class User extends BaseController
             $this->load->model('user_model');
             $data['roles'] = $this->user_model->getUserRoles();
             
-            $this->global['pageTitle'] = 'CodeInsect : Add New User';
-
-            $this->loadViews("addNew", $this->global, $data, NULL);
+           
         }
     }
     
