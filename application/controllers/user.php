@@ -81,11 +81,7 @@ class User extends BaseController
             $this->load->library('form_validation');
             
             $this->form_validation->set_rules('fname','Full Name','trim|required|max_length[128]|xss_clean');
-            $this->form_validation->set_rules('email','Email','trim|required|valid_email|xss_clean|max_length[128]');
-            $this->form_validation->set_rules('password','Password','required|max_length[20]');
-            $this->form_validation->set_rules('cpassword','Confirm Password','trim|required|matches[password]|max_length[20]');
-            $this->form_validation->set_rules('role','Role','trim|required|numeric');
-            $this->form_validation->set_rules('mobile','Mobile Number','required|min_length[10]|xss_clean');
+            
             
             if($this->form_validation->run() == FALSE)
             {
