@@ -136,6 +136,13 @@ class User extends BaseController
         }
     }
 
+    function loadChangePass()
+    {
+        $this->global['pageTitle'] = 'CodeInsect : Change Password';
+        
+        $this->loadViews("changePassword", $this->global, NULL, NULL);
+    }
+
     
 }
 ?>
