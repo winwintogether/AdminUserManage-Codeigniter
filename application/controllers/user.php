@@ -157,7 +157,28 @@ class User extends BaseController
         }
         else
         {
-           
+            $oldPassword = $this->input->post('oldPassword');
+            $newPassword = $this->input->post('newPassword');
+            
+            $resultPas = $this->user_model->matchOldPassword($this->vendorId, $oldPassword);
+            
+            if(empty($resultPas))
+            {
+                $this->session->set_flashdata('nomatch', 'Your old password not correct');
+                redirect('loadChangePass');
+            }
+            else
+            {
+                $usersData = array('password'=>getHashedPassword($newPassword), 'updatedBy'=>$this->vendorId,
+                                'updatedDtm'=>date('Y-m-d H:i:sa'));
+                
+                $result = $this->user_model->changePassword($this->vendorId, $usersData);
+                
+                if($result > 0) { $this->session->set_flashdata('success', 'Password updation successful'); }
+                else { $this->session->set_flashdata('error', 'Password updation failed'); }
+                
+                redirect('loadChangePass');
+            }
         }
     }
 
