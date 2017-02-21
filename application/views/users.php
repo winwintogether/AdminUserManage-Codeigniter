@@ -32,14 +32,7 @@
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
-                    <tr>
-                      <th>Id</th>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Mobile</th>
-                      <th>Role</th>
-                      <th>Actions</th>
-                    </tr>
+                   
                     <?php
                     if(!empty($userRecords))
                     {
